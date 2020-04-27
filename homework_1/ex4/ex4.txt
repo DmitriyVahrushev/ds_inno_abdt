@@ -1,0 +1,20 @@
+ 1978  ls
+ 1979  cd ex4
+ 1980  ls
+ 1981  touch abc/file.txt
+ 1982  link abc/file.txt _some_file.txt
+ 1983  ls -la abc/file.txt
+ 1984  ls -li abc/file.txt
+ 1985  find . -inum 7480720
+ 1986  ls
+ 1987  cat ex4.txt 
+ 1988  link abc/file.txt xyz/_some_file.txt
+ 1989  history 10 
+ 1990  history 10 > ex4.txt 
+ 1991  cat ex4.txt 
+ 1992  find . -inum 7480720
+ 1993  history
+ 1994  history 3 > ex4.txt 
+ 1995  nano
+ 1996  nano ex4.txt 
+ 1997  history 20 > ex4.txt 

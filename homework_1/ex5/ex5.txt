@@ -1,0 +1,1 @@
+-rwxrwxrwx 1 dmitriy dmitriy 0 апр 26 23:55 ex5.txt
