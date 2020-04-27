@@ -1,1 +1,4 @@
 -rwxrwxrwx 1 dmitriy dmitriy 0 апр 26 23:55 ex5.txt
+-rw-rw-rw- 1 dmitriy dmitriy 55 апр 28 00:41 ex5.txt
+-rwx---rwx 1 dmitriy dmitriy 111 апр 28 02:53 ex5.txt
+-rwxrwxrwx 1 dmitriy dmitriy 168 апр 28 02:54 ex5.txt
