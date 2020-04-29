@@ -1,0 +1,3 @@
+7479856 -rw-r--r-- 2 dmitriy dmitriy 0 апр 28 02:58 abc/file.txt
+./xyz/_some_file.txt
+./abc/file.txt

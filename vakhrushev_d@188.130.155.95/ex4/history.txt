@@ -1,0 +1,15 @@
+ 2121  cd ex4
+ 2122  ls
+ 2123  rm -r *
+ 2124  mkdir abc xyz
+ 2125  touch abc/file.txt
+ 2126  link abc/file.txt xyz/_some_file.txt
+ 2127  ls -li abc/file.txt 
+ 2128  ls -li abc/file.txt  >> ex4.txt
+ 2129  find . -inum 7479856
+ 2130  find . -inum 7479856 >> ex4.txt 
+ 2131  cat ex4.txt 
+ 2132  find . -inum 7479856
+ 2133  find . -inum 7479856 -exec rm {} \;
+ 2134  find . -inum 7479856
+ 2135  history 20 >> history.txt

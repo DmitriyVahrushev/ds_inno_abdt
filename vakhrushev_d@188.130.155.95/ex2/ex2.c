@@ -3,8 +3,8 @@
 #include <string.h>
 
 void main(){
-    char cmd_name[] = "ffdsfds";
-    while (strcmp(cmd_name, "exit") != 0)
+    char cmd_name[10];
+    while (1)
     {
         scanf("%s", cmd_name);
         //printf("Your command is %s \n", cmd_name);
