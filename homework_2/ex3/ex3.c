@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/wait.h>
+#include <unistd.h>
+#include <string.h>
 #define STACK_SIZE (1024*1024)
 
 static char child_stack[STACK_SIZE];
@@ -13,6 +15,13 @@ static int child_fn(){
     printf("Network namespace:\n ");
     system("ip link");
     printf("\n\n");
+    char cmd_name[] = "ffdsfds";
+    while (strcmp(cmd_name, "exit") != 0)
+    {
+        scanf("%s", cmd_name);
+        system(cmd_name);         
+    }
+
     return EXIT_SUCCESS;
 }
 
