@@ -15,10 +15,13 @@ static int child_fn(){
     printf("Network namespace:\n ");
     system("ip link");
     printf("\n\n");
+    system("ps");
+    printf("\n\n");
     char cmd_name[] = "ffdsfds";
     while (strcmp(cmd_name, "exit") != 0)
     {
         scanf("%s", cmd_name);
+        printf("%s\n", cmd_name);
         system(cmd_name);         
     }
 
@@ -26,8 +29,10 @@ static int child_fn(){
 }
 
 int main(){
+    printf("Original `net` Namespace:\n");
+    system("ip link");
     pid_t child_pid = clone(
-        child_fn, child_stack + STACK_SIZE,  CLONE_NEWPID | SIGCHLD, NULL);
+        child_fn, child_stack + STACK_SIZE,  CLONE_NEWPID | CLONE_NEWNET | CLONE_NEWNS | CLONE_NEWUTS | CLONE_NEWIPC | SIGCHLD, NULL);
     printf("clone()= %ld\n", (long) child_pid);
     waitpid(child_pid, NULL, 0);
     return EXIT_SUCCESS;
