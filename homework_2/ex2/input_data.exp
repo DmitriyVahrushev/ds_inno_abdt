@@ -1,0 +1,13 @@
+#!/usr/bin/expect
+set username [lindex $argv 0]
+set pw [lindex $argv 1]
+set mail [lindex $argv 2]
+
+spawn ./install.sh
+expect "Please the user name that you want to use when logging into brat"
+send "$username\r"
+expect "Please enter a brat password (this shows on screen)"
+send "$pw\r"
+expect "Please enter the administrator contact email"
+send "$mail\r"
+expect eof
