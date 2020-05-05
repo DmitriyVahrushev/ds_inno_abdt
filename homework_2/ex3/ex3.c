@@ -15,8 +15,16 @@ static int child_fn(){
     printf("Network namespace:\n ");
     system("ip link");
     printf("\n\n");
-    system("ps");
+
+    //system("dd if=/dev/zero of=./contfs bs=1024 count=30720");
+    //system("chmod 777 ./contfs");
+    //system("losetup /dev/loop0 ./contfs");
+    //system("mkfs -t ext4 -m 1 -v /dev/loop0");
+    //system("mount -t ext4 /dev/loop0 /home");
+    //system("mount -t proc proc /proc");
+
     printf("\n\n");
+    system("ps");
     char cmd_name[] = "ffdsfds";
     while (strcmp(cmd_name, "exit") != 0)
     {
