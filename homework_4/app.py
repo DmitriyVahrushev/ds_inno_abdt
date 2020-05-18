@@ -1,9 +1,16 @@
 from flask import Flask, render_template, jsonify, request, abort
 import pandas as pd
 import random
+import argparse
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--path", help="path to imdb data in tsv format", default="homework_4/data_min.tsv")
+args = parser.parse_args()
+
+movies = pd.read_csv(args.path, sep="\t")
 
 app = Flask(__name__)
-movies = pd.read_csv("homework_4/data_min.tsv", sep="\t")
 
 #возвращает пустой json файл при возникновении ошибки 404
 @app.errorhandler(404)
@@ -17,6 +24,7 @@ def get_movie_id(movie_id):
     result_movie = movies[movies['tconst'] == movie_id]
     if result_movie.empty:
         abort(404)
+    # приведение response к виду как в задании
     result_movie = result_movie[['tconst', 'primaryTitle']].transpose()
     result_movie.columns = ['movie']
     result_movie.index = ['tconst', 'title']
