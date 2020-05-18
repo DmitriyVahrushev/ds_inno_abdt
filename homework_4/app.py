@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request, abort
 import pandas as pd
-
+import random
 
 app = Flask(__name__)
 movies = pd.read_csv("homework_4/data_min.tsv", sep="\t")
@@ -43,9 +43,17 @@ def get_movie_year(year):
 
 @app.route("/suggest/<topk>", methods = ['POST'])
 def post_movie_year(topk):
-    scores = request.get_json()
-
-    return scores
+    recieved_json = request.get_json()
+    likes = recieved_json["likes"] 
+    k = len(likes)
+    #убираем из списка фильмов уже оценённые фильмы
+    possible_reccomends = movies[~movies['tconst'].isin(likes.keys())]
+    #случайным образом выбираем фильмы для рекомендации  и оценки к ним
+    recomends_titles = possible_reccomends['tconst'].sample(k).tolist()
+    recomends_scores = [0.1*random.randint(0, 10) for i in range(k)]
+    final_recomends = dict(zip(recomends_titles, recomends_scores))
+    response = {"ratings": final_recomends} 
+    return jsonify(response)
 
 
 if __name__ == "__main__":
